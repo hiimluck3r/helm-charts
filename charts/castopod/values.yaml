@@ -154,7 +154,7 @@ mariadb:
   primary:
     persistence:
       enabled: true
-      size: 10Gi
+      size: 8Gi
 
 redis:
   enabled: true
@@ -164,7 +164,7 @@ redis:
     storageclass: ""
   master:
     persistence:
-      size: 10Gi
+      size: 8Gi
   auth:
     enabled: true
     sentinel: false
