@@ -14,6 +14,9 @@ maintainers:
   - name: hiimluck3r
     email: luck3rinc@yandex.ru
     url: https://github.com/hiimluck3r
+home: https://castopod.org/
+sources:
+  - https://github.com/hiimluck3r/helm-charts/castopod
 dependencies:
   - name: mariadb
     version: 18.2.0
