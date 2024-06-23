@@ -14,12 +14,12 @@ jobs:
       - uses: actions/checkout@v3
 
       - id: jobs
-        uses: kmanimaran/list-folders-action@v1
+        uses: kmanimaran/list-folders-action@v4
         with:
           path: ./charts
 
   matrix:
-    name: Matrix Jobs
+    name: Matrix Debug Jobs
     needs: [find-jobs]
     runs-on: ubuntu-latest
     defaults:
