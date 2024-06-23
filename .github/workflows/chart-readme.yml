@@ -1,0 +1,35 @@
+name: Update README.md for charts
+
+on:
+  - pull_request
+    
+
+jobs:
+  list-subfolders-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: List subfolders
+        id: list-subfolders
+        uses: Drafteame/list-folders-action@main
+        with:
+          paths: |
+            /charts
+  
+  updater:
+    permissions:
+      contents: write
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        ref: ${{ github.event.pull_request.head.ref }}
+
+    - name: Render helm docs inside the README.md and push changes back to PR branch
+      uses: shaybentk/helm-docs-action@v0.0.1
+      with:
+        working-dir: ${{ steps.list-subfolders.outputs.folders }}
+        git-push: "true"
+        git-commit-message: "[Automated] helm-docs: update charts README.md"

@@ -3,7 +3,7 @@ replicaCount: 1
 image:
   repository: castopod/castopod
   pullPolicy: IfNotPresent
-  # Overrides the image tag whose default is the chart appVersion.
+  # -- Overrides the image tag whose default is the chart appVersion.
   tag: ""
 
 imagePullSecrets: []
@@ -11,7 +11,7 @@ nameOverride: ""
 fullnameOverride: ""
 
 secrets:
-  # Set to true if you want to create new secret, also provide mariadb and redis passwords as it shown below
+  # -- Set to true if you want to create new secret, also provide mariadb and redis passwords as it shown below in values.yaml
   create: false
   
   # Example of the mariadb and redis password definitions (not recommended)
@@ -20,9 +20,9 @@ secrets:
   # redis:
   #   password: default
   
-  # The name of the secret (existing or being created). 
-  # If you are using an existing secret, make sure it has the redis-password, mariadb-root-password,
-  # mariadb-replication-password and mariadb-password fields.
+  # -- The name of the secret (existing or being created). 
+  # If you are using an existing secret, make sure it has the `redis-password`, `mariadb-root-password`,
+  # `mariadb-replication-password` and `mariadb-password` fields.
   # It is recommended to use existing secrets (i.e. sealed secrets)
   name: castopod
   
@@ -34,11 +34,11 @@ env:
   CP_ANALYTICS_SALT: ""
 
 serviceAccount:
-  # Specifies whether a service account should be created
+  # -- Specifies whether a service account should be created
   create: false
-  # Annotations to add to the service account
+  # -- Annotations to add to the service account
   annotations: {}
-  # The name of the service account to use.
+  # -- The name of the service account to use.
   # If not set and create is true, a name is generated using the fullname template
   name: ""
 
@@ -150,7 +150,7 @@ mariadb:
   auth:
     database: castopod
     username: castopod
-    existingSecret: castopod # Must be equal to secrets.name
+    existingSecret: castopod # -- Must be equal to secrets.name
   primary:
     persistence:
       enabled: true
@@ -168,6 +168,6 @@ redis:
   auth:
     enabled: true
     sentinel: false
-    existingSecret: castopod # Must be equal to secrets.name
+    existingSecret: castopod # -- Must be equal to secrets.name
     existingSecretPasswordKey: "redis-password"
     usePasswordFiles: false
