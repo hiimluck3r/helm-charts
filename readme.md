@@ -19,7 +19,7 @@ helm repo update
   helm install my-release h2m/castopod
   ```
 
-For more information, please checkout the chart level [README.md](https://github.com/hiimluck3r/helm-charts/charts/castopod/README.md).
+For more information, please checkout the chart level [README.md](https://github.com/hiimluck3r/helm-charts/tree/master/charts/castopod/README.md).
 
 ### Support and Contribution
 This repository is (sometimes) maintained by me. If you have an advice, fix, feature or motivation to add/fix something, feel free to create a PR/fork this repo.
