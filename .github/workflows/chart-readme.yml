@@ -29,9 +29,13 @@ jobs:
       with:
         ref: ${{ github.event.pull_request.head.ref }}
 
+    - name: Echo subfolders
+      shell: bash
+      run:  echo ${{ needs.list-subfolders-job.outputs.folders_no_base_path }}
+
     - name: Render helm docs inside the README.md and push changes back to PR branch
       uses: shaybentk/helm-docs-action@v0.0.1
       with:
-        working-dir: ${{ fromJson(needs.list-subfolders-job.outputs.folders_no_base_path) }}
+        working-dir: ${{ needs.list-subfolders-job.outputs.folders_no_base_path }}
         git-push: "true"
 
