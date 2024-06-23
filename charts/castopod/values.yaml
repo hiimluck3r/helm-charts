@@ -23,7 +23,7 @@ secrets:
   # The name of the secret (existing or being created). 
   # If you are using an existing secret, make sure it has the redis-password, mariadb-root-password,
   # mariadb-replication-password and mariadb-password fields.
-  # It is recommended to use existing secrets
+  # It is recommended to use existing secrets (i.e. sealed secrets)
   name: castopod
   
 
@@ -154,6 +154,7 @@ mariadb:
   primary:
     persistence:
       enabled: true
+      size: 10Gi
 
 redis:
   enabled: true
@@ -161,6 +162,9 @@ redis:
   global:
     imagePullSecrets: []
     storageclass: ""
+  master:
+    persistence:
+      size: 10Gi
   auth:
     enabled: true
     sentinel: false
