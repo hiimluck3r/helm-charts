@@ -32,6 +32,6 @@ jobs:
     - name: Render helm docs inside the README.md and push changes back to PR branch
       uses: shaybentk/helm-docs-action@v0.0.1
       with:
-        working-dir: ${{ steps.list-subfolders.outputs.folders }}
+        working-dir: ${{ fromJson(needs.list-subfolders-job.outputs.folders_no_base_path) }}
         git-push: "true"
-        git-commit-message: "[Automated] helm-docs: update charts README.md"
+
