@@ -5,50 +5,20 @@ on:
     
 
 jobs:
-  find-jobs:
-    name: Find Jobs
-    runs-on: ubuntu-latest
-    outputs:
-      folders: ${{ steps.jobs.outputs.folders }}
-    steps:
-      - uses: actions/checkout@v3
-
-      - id: jobs
-        uses: kmanimaran/list-folders-action@v4
-        with:
-          path: ./charts
-
-  matrix:
-    name: Matrix Debug Jobs
-    needs: [find-jobs]
-    runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ${{ matrix.folder }}
-    strategy:
-      matrix:
-        folder: ${{ fromJson(needs.find-jobs.outputs.folders )}}
-    steps:
-      - name: do something
-        run: echo ${{ matrix.folder }}
-  
   updater:
-    needs: [matrix]
     permissions:
       contents: write
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
       with:
         ref: ${{ github.event.pull_request.head.ref }}
-
-    - name: Echo subfolders
-      shell: bash
-      run:  echo ${{ needs.list-subfolders-job.outputs.folders_no_base_path }}
-
-    - name: Render helm docs inside the README.md and push changes back to PR branch
-      uses: shaybentk/helm-docs-action@v0.0.1
+    
+    - name: Run helm-docs
+      uses: losisin/helm-docs-github-action@v1
       with:
-        working-dir: ${{ needs.list-subfolders-job.outputs.folders_no_base_path }}
-        git-push: "true"
+        chart-search-root: ./charts
+        git-push: 'true'
+
+    
 
