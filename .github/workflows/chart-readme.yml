@@ -15,10 +15,12 @@ jobs:
         id: list-subfolders
         uses: Drafteame/list-folders-action@main
         with:
+          separator: ','
           paths: |
-            /charts
+            ./charts
   
   updater:
+    needs: [list-subfolders-job]
     permissions:
       contents: write
     runs-on: ubuntu-latest
