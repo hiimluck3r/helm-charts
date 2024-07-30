@@ -2,6 +2,40 @@ apiVersion: v1
 entries:
   castopod:
   - apiVersion: v2
+    appVersion: 1.12.4
+    created: "2024-07-30T13:11:19.637981078Z"
+    dependencies:
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: oci://registry-1.docker.io/bitnamicharts
+      version: 18.2.0
+    - condition: redis.enabled
+      name: redis
+      repository: oci://registry-1.docker.io/bitnamicharts
+      version: 19.5.0
+    description: Helm chart for Castopod - free and open-source hosting platform for
+      podcasters.
+    digest: fe9a5b1411ba9171e887597a21649811e3f92b6ad5a13ba2f1f74b780d6f310e
+    home: https://castopod.org/
+    icon: https://raw.githubusercontent.com/hiimluck3r/helm-charts/master/etc/icons/castopod-logo.jpg
+    keywords:
+    - castopod
+    - storage
+    - http
+    - web
+    - php
+    maintainers:
+    - email: luck3rinc@yandex.ru
+      name: hiimluck3r
+      url: https://github.com/hiimluck3r
+    name: castopod
+    sources:
+    - https://github.com/hiimluck3r/helm-charts/castopod
+    type: application
+    urls:
+    - https://github.com/hiimluck3r/helm-charts/releases/download/castopod-0.2.4/castopod-0.2.4.tgz
+    version: 0.2.4
+  - apiVersion: v2
     appVersion: 1.12.3
     created: "2024-07-30T13:10:28.967620307Z"
     dependencies:
@@ -166,4 +200,4 @@ entries:
     urls:
     - https://github.com/hiimluck3r/helm-charts/releases/download/castopod-0.1.0/castopod-0.1.0.tgz
     version: 0.1.0
-generated: "2024-07-30T13:10:28.967643421Z"
+generated: "2024-07-30T13:11:19.638012267Z"
