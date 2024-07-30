@@ -66,8 +66,13 @@ spec:
             - name: CP_DISABLE_HTTPS
               value: "1"
             {{- end }}
+            {{- if (eq .Values.redis.architecture "standalone") }}
             - name: CP_REDIS_HOST
               value: {{ .Release.Name }}-redis-master
+            {{- else if (eq .Values.redis.architecture "replication") }}
+            - name: CP_REDIS_HOST
+              value: {{ .Release.Name }}-redis
+            {{- end }}
             - name: CP_REDIS_PASSWORD
               valueFrom:
                 secretKeyRef:
