@@ -2,8 +2,8 @@ apiVersion: v2
 name: castopod
 description: Helm chart for Castopod - free and open-source hosting platform for podcasters.
 type: application
-version: 1.12.2
-appVersion: "1.12.2"
+version: 1.12.3
+appVersion: "1.12.3"
 keywords:
   - castopod
   - storage
