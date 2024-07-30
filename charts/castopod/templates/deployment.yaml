@@ -66,12 +66,12 @@ spec:
             - name: CP_DISABLE_HTTPS
               value: "1"
             {{- end }}
-            {{- if (eq .Values.redis.architecture "standalone") }}
+            {{- if not .Values.redis.sentinel.enabled }}
             - name: CP_REDIS_HOST
               value: {{ .Release.Name }}-redis-master
-            {{- else if (eq .Values.redis.architecture "replication") }}
+            {{- else }}
             - name: CP_REDIS_HOST
-              value: {{ .Release.Name }}-redis
+              value: {{ .Release.Name }}-redis #Sentinel doesn't work, actually
             {{- end }}
             - name: CP_REDIS_PASSWORD
               valueFrom:
