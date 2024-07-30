@@ -157,7 +157,7 @@ mariadb:
       size: 8Gi
 
 redis:
-  enabled: true
+  enabled: true # -- Do NOT enable sentinel, castopod doesn't support it
   architecture: replication # -- Or standalone, turn off sentinel for not HA solution
   global:
     imagePullSecrets: []
@@ -167,15 +167,7 @@ redis:
       size: 8Gi
   auth:
     enabled: true
-    sentinel: true
     existingSecret: castopod # -- Must be equal to secrets.name
     existingSecretPasswordKey: "redis-password"
     usePasswordFiles: false
     usePasswordFileFromSecret: false
-  sentinel:
-    enabled: true
-    quorum: 3
-    masterSet: castopodmaster
-    persistence:
-      enabled: false
-      storageclass: ""
