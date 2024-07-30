@@ -1,6 +1,6 @@
 # castopod
 
-![Version: 0.2.4](https://img.shields.io/badge/Version-0.2.4-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.12.4](https://img.shields.io/badge/AppVersion-1.12.4-informational?style=flat-square)
+![Version: 1.12.4](https://img.shields.io/badge/Version-1.12.4-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.12.4](https://img.shields.io/badge/AppVersion-1.12.4-informational?style=flat-square)
 
 Helm chart for Castopod - free and open-source hosting platform for podcasters.
 
@@ -72,18 +72,12 @@ Helm chart for Castopod - free and open-source hosting platform for podcasters.
 | redis.auth.enabled | bool | `true` |  |
 | redis.auth.existingSecret | string | `"castopod"` |  |
 | redis.auth.existingSecretPasswordKey | string | `"redis-password"` |  |
-| redis.auth.sentinel | bool | `true` |  |
 | redis.auth.usePasswordFileFromSecret | bool | `false` |  |
 | redis.auth.usePasswordFiles | bool | `false` |  |
 | redis.enabled | bool | `true` |  |
 | redis.global.imagePullSecrets | list | `[]` |  |
 | redis.global.storageclass | string | `""` |  |
 | redis.master.persistence.size | string | `"8Gi"` |  |
-| redis.sentinel.enabled | bool | `true` |  |
-| redis.sentinel.masterSet | string | `"castopodmaster"` |  |
-| redis.sentinel.persistence.enabled | bool | `false` |  |
-| redis.sentinel.persistence.storageclass | string | `""` |  |
-| redis.sentinel.quorum | int | `3` |  |
 | replicaCount | int | `1` |  |
 | resources | object | `{}` |  |
 | secrets.create | bool | `false` | Set to true if you want to create new secret, also provide mariadb and redis passwords as it shown below in values.yaml |
