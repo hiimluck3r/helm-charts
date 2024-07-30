@@ -25,4 +25,7 @@ jobs:
         uses: helm/chart-releaser-action@v1.6.0
         env:
           CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
-          skip_existing: 'true'
+        with:  
+          skip_existing: true
+          config: cr.yaml
+          charts_dir: charts
