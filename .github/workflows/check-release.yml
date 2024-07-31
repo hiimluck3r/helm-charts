@@ -3,7 +3,7 @@ name: Check release changes
 on:
   pull_request:
     paths:
-      - "charts/*"
+      - "charts/**"
 
 jobs:
   checker:
