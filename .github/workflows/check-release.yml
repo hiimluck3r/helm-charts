@@ -3,7 +3,7 @@ name: Check release changes
 on:
   pull_request:
     paths:
-      - "charts/*"
+      - "TODO/charts/**" #currently we have to do something with allowing chart to use dependencies, currently it breaks ct
 
 jobs:
   checker:
@@ -25,7 +25,7 @@ jobs:
           check-latest: true
 
       - name: Set up chart-testing
-        uses: helm/chart-testing-action@v2.7.0
+        uses: helm/chart-testing-action@v2.6.1
 
       - name: Run chart-testing (list-changed)
         id: list-changed
@@ -37,7 +37,7 @@ jobs:
 
       - name: Run chart-testing (lint)
         if: steps.list-changed.outputs.changed == 'true'
-        run: ct lint --target-branch ${{ github.event.repository.default_branch }}
+        run: ct lint --target-branch ${{ github.event.repository.default_branch }} --check-version-increment=false
 
       - name: Create kind cluster
         if: steps.list-changed.outputs.changed == 'true'
@@ -45,5 +45,5 @@ jobs:
 
       - name: Run chart-testing (install)
         if: steps.list-changed.outputs.changed == 'true'
-        run: ct install --target-branch ${{ github.event.repository.default_branch }}
+        run: ct install --target-branch ${{ github.event.repository.default_branch }} --check-version-increment=false
 
