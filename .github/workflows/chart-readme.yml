@@ -1,8 +1,9 @@
 name: Update README.md for charts
 
 on:
-  - pull_request
-    
+  pull_request:
+    paths:
+    - "charts/**"  
 
 jobs:
   updater:
