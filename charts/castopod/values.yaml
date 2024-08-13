@@ -158,7 +158,7 @@ mariadb:
 
 redis:
   enabled: true # -- Do NOT enable sentinel, castopod doesn't support it
-  architecture: replication # -- Or standalone, turn off sentinel for not HA solution
+  architecture: replication # -- Or standalone, do not use sentinel
   global:
     imagePullSecrets: []
     storageclass: ""
