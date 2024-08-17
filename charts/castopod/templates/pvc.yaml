@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: castopod-media
+  name: {{ include "castopod.fullname" . }}-media
 spec:
   accessModes:
     - ReadWriteMany

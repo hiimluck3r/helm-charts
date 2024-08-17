@@ -81,7 +81,7 @@ ingress:
 
 httpRoute:
   # -- HTTPRoute enabled.
-  enabled: true
+  enabled: false
   # -- HTTPRoute annotations.
   annotations: {}
   # -- Which Gateways this Route is attached to

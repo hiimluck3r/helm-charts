@@ -33,7 +33,7 @@ Helm chart for Castopod - free and open-source hosting platform for podcasters.
 | env.https.enabled | bool | `false` |  |
 | fullnameOverride | string | `""` |  |
 | httpRoute.annotations | object | `{}` | HTTPRoute annotations. |
-| httpRoute.enabled | bool | `true` | HTTPRoute enabled. |
+| httpRoute.enabled | bool | `false` | HTTPRoute enabled. |
 | httpRoute.hostnames | list | `["castopod.local"]` | Hostnames matching HTTP header. |
 | httpRoute.parentRefs | list | `[{"group":"gateway.networking.k8s.io","name":"kong","namespace":"kong"}]` | Which Gateways this Route is attached to |
 | httpRoute.rules | list | `[{"matches":[{"path":{"type":"PathPrefix","value":"/"}}]}]` | List of rules and filters applied. |
