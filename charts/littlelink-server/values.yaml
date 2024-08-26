@@ -5,7 +5,7 @@ fullnameOverride: ""
 image:
   registry: ghcr.io
   repository: techno-tim/littlelink-server
-  tag: latest@sha256:8c00a23f017616d0db0dab662e419b2f141baaa5cd22d157db3f5853f9306b9e
+  tag: latest
   pullPolicy: IfNotPresent
 
 replicaCount: 1
