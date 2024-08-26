@@ -43,32 +43,32 @@ env:
   NAME: Random Cat
   BIO: Just a cat
   BUTTON_ORDER: YOUTUBE,EMAIL,EMAIL_ALT,TWITCH,TELEGRAM,TWITTER,GITHUB,INSTAGRAM,LINKED_IN,DISCORD,FACEBOOK,TIKTOK,PATREON,GEAR,DOCUMENTATION,STEAM,SPOTIFY,REDDIT
-  CUSTOM_BUTTON_TEXT: Documentation,Recommended Gear
-  CUSTOM_BUTTON_URL: https://wikipedia.com,https://www.lttstore.com/
-  CUSTOM_BUTTON_COLOR: 000000,#000000
-  CUSTOM_BUTTON_TEXT_COLOR: ffffff,#ffffff
-  CUSTOM_BUTTON_ALT_TEXT: Documentation,Segue to our sponsor
-  CUSTOM_BUTTON_NAME: DOCUMENTATION,GEAR
-  CUSTOM_BUTTON_ICON: fas filealt,fas facog
-  GITHUB: https://github.com/The-Broad-Band
-  TWITTER: https://twitter.com
-  INSTAGRAM: https://instagram.com
-  LINKED_IN: https://linkedin.com
-  YOUTUBE: https://youtube.com/
-  TWITCH: https://twitch.tv
-  DISCORD: https://discord.com
-  TIKTOK: https://tiktok.com
-  FACEBOOK: https://facebook.com
-  PATREON: https://patreon.com
-  TELEGRAM: https://t.me/imluck3r
-  SPOTIFY: https://spotify.com
-  REDDIT: https:/reddit.com
-  EMAIL: mail@example.com
-  EMAIL_TEXT: mailme
-  EMAIL_ALT: mail@example.com
-  EMAIL_ALT_TEXT: also mailme
-  STEAM: https://steamcommunity.com
-  GHOST: https://ghost.com
+  #CUSTOM_BUTTON_TEXT: Documentation,Recommended Gear
+  #CUSTOM_BUTTON_URL: https://wikipedia.com,https://www.lttstore.com/
+  #CUSTOM_BUTTON_COLOR: 000000,#000000
+  #CUSTOM_BUTTON_TEXT_COLOR: ffffff,#ffffff
+  #CUSTOM_BUTTON_ALT_TEXT: Documentation,Segue to our sponsor
+  #CUSTOM_BUTTON_NAME: DOCUMENTATION,GEAR
+  #CUSTOM_BUTTON_ICON: fas filealt,fas facog
+  #GITHUB: https://github.com/The-Broad-Band
+  #TWITTER: https://twitter.com
+  #INSTAGRAM: https://instagram.com
+  #LINKED_IN: https://linkedin.com
+  #YOUTUBE: https://youtube.com/
+  #TWITCH: https://twitch.tv
+  #DISCORD: https://discord.com
+  #TIKTOK: https://tiktok.com
+  #FACEBOOK: https://facebook.com
+  #PATREON: https://patreon.com
+  #TELEGRAM: https://t.me/imluck3r
+  #SPOTIFY: https://spotify.com
+  #REDDIT: https:/reddit.com
+  #EMAIL: mail@example.com
+  #EMAIL_TEXT: mailme
+  #EMAIL_ALT: mail@example.com
+  #EMAIL_ALT_TEXT: also mailme
+  #STEAM: https://steamcommunity.com
+  #GHOST: https://ghost.com
   FOOTER: h2m © 2024
 
 ingress:
