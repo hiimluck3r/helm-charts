@@ -574,4 +574,23 @@ entries:
     urls:
     - https://github.com/hiimluck3r/helm-charts/releases/download/castopod-0.1.0/castopod-0.1.0.tgz
     version: 0.1.0
-generated: "2024-08-17T12:25:11.445307918Z"
+  littlelink-server:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2024-08-26T21:17:59.805854648Z"
+    description: Helm Chart for LittleLink - personal link aggregator.
+    digest: e0f7d4957aaae82eec8f7f320f998e02e981c2093e01da54ab54009bc6146f1b
+    keywords:
+    - littlelink-server
+    maintainers:
+    - email: luck3rinc@yandex.ru
+      name: hiimluck3r
+      url: https://github.com/hiimluck3r
+    name: littlelink-server
+    sources:
+    - https://github.com/techno-tim/littlelink-server
+    - https://github.com/sethcottle/littlelink
+    urls:
+    - https://github.com/hiimluck3r/helm-charts/releases/download/littlelink-server-1.0.0/littlelink-server-1.0.0.tgz
+    version: 1.0.0
+generated: "2024-08-26T21:17:59.805942823Z"
