@@ -1,0 +1,186 @@
+---
+nameOverride: ""
+fullnameOverride: ""
+
+image:
+  registry: ghcr.io
+  repository: techno-tim/littlelink-server
+  tag: latest@sha256:8c00a23f017616d0db0dab662e419b2f141baaa5cd22d157db3f5853f9306b9e
+  pullPolicy: IfNotPresent
+
+replicaCount: 1
+
+strategy:
+  type: RollingUpdate
+  rollingUpdate:
+    maxSurge: 1
+    maxUnavailable: 1
+
+resources: {}
+
+# -- You can find more at https://github.com/techno-tim/littlelink-server
+env:
+  TZ: Europe/Moscow
+  META_TITLE: h2m
+  META_DESCRIPTION: Example of meta description for h2m
+  META_AUTHOR: hiimluck3r
+  META_KEYWORDS: HomeLab, Kubernetes, Helm, Automation
+  LANG: en
+  META_INDEX_STATUS: all
+  OG_SITE_NAME: h2m
+  OG_TITLE: h2m
+  OG_DESCRIPTION: example of description
+  OG_URL: https://thebroadband.ru
+  OG_IMAGE: https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg
+  OG_IMAGE_WIDTH: 400
+  OG_IMAGE_HEIGHT: 400
+  GA_TRACKING_ID: GXXXXXXXXXX
+  THEME: Dark
+  FAVICON_URL: https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg
+  AVATAR_URL: https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg
+  AVATAR_2X_URL: https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg
+  AVATAR_ALT: cat pic
+  NAME: Random Cat
+  BIO: Just a cat
+  BUTTON_ORDER: YOUTUBE,EMAIL,EMAIL_ALT,TWITCH,TELEGRAM,TWITTER,GITHUB,INSTAGRAM,LINKED_IN,DISCORD,FACEBOOK,TIKTOK,PATREON,GEAR,DOCUMENTATION,STEAM,SPOTIFY,REDDIT
+  CUSTOM_BUTTON_TEXT: Documentation,Recommended Gear
+  CUSTOM_BUTTON_URL: https://wikipedia.com,https://www.lttstore.com/
+  CUSTOM_BUTTON_COLOR: 000000,#000000
+  CUSTOM_BUTTON_TEXT_COLOR: ffffff,#ffffff
+  CUSTOM_BUTTON_ALT_TEXT: Documentation,Segue to our sponsor
+  CUSTOM_BUTTON_NAME: DOCUMENTATION,GEAR
+  CUSTOM_BUTTON_ICON: fas filealt,fas facog
+  GITHUB: https://github.com/The-Broad-Band
+  TWITTER: https://twitter.com
+  INSTAGRAM: https://instagram.com
+  LINKED_IN: https://linkedin.com
+  YOUTUBE: https://youtube.com/
+  TWITCH: https://twitch.tv
+  DISCORD: https://discord.com
+  TIKTOK: https://tiktok.com
+  FACEBOOK: https://facebook.com
+  PATREON: https://patreon.com
+  TELEGRAM: https://t.me/imluck3r
+  SPOTIFY: https://spotify.com
+  REDDIT: https:/reddit.com
+  EMAIL: mail@example.com
+  EMAIL_TEXT: mailme
+  EMAIL_ALT: mail@example.com
+  EMAIL_ALT_TEXT: also mailme
+  STEAM: https://steamcommunity.com
+  GHOST: https://ghost.com
+  FOOTER: h2m © 2024
+
+ingress:
+  enabled: false
+  className: ""
+  annotations: {}
+    # kubernetes.io/ingress.class: nginx
+    # kubernetes.io/tls-acme: "true"
+  hosts:
+    - host: littlelink.local
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+  tls: []
+  #  - secretName: chart-example-tls
+  #    hosts:
+  #      - littlelink.local
+
+httpRoute:
+  # -- HTTPRoute enabled.
+  enabled: false
+  # -- HTTPRoute annotations.
+  annotations: {}
+  # -- Which Gateways this Route is attached to
+  parentRefs:
+  - name: cilium
+    group: gateway.networking.k8s.io
+    namespace: kube-system
+  # -- Hostnames matching HTTP header.
+  hostnames:
+  - littlelink.local
+  # -- List of rules and filters applied.
+  rules:
+  - matches:
+    - path:
+        type: PathPrefix
+        value: /
+  #   filters:
+  #   - type: RequestHeaderModifier
+  #     requestHeaderModifier:
+  #       set:
+  #       - name: My-Overwrite-Header
+  #         value: this-is-the-only-value
+  #       remove:
+  #       - User-Agent
+  # - matches:
+  #   - path:
+  #       type: PathPrefix
+  #       value: /echo
+  #     headers:
+  #     - name: version
+  #       value: v2
+
+livenessProbe:
+  enabled: true
+  httpGet:
+    path: /healthcheck
+    port: http
+  periodSeconds: 5
+  timeoutSeconds: 1
+  successThreshold: 1
+  failureThreshold: 6
+
+startupProbe:
+  enabled: true
+  httpGet:
+    path: /healthcheck
+    port: http
+  periodSeconds: 10
+  timeoutSeconds: 1
+  successThreshold: 1
+  failureThreshold: 30
+
+readinessProbe:
+  enabled: true
+  httpGet:
+    path: /healthcheck
+    port: http
+  periodSeconds: 5
+  timeoutSeconds: 1
+  successThreshold: 1
+  failureThreshold: 3
+
+serviceAccount:
+  # -- Specifies whether a service account should be created
+  create: true
+  # Annotations to add to the service account
+  annotations: {}
+  # -- The name of the service account to use.
+  # -- If not set and create is true, a name is generated using the fullname template
+  name: ""
+
+service:
+  type: ClusterIP
+
+  port: 3000
+
+  clusterIP: ""
+  loadBalancerIP: ""
+
+  externalTrafficPolicy: Cluster
+
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 4
+  targetCPU: ""
+  targetMemory: ""
+
+nodeSelector:
+  kubernetes.io/os: linux
+
+tolerations: []
+
+affinity: []

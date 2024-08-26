@@ -1,0 +1,14 @@
+apiVersion: v2
+appVersion: 1.0.0
+description: Helm Chart for LittleLink - personal link aggregator.
+keywords:
+  - littlelink-server
+maintainers:
+  - name: hiimluck3r
+    email: luck3rinc@yandex.ru
+    url: https://github.com/hiimluck3r
+name: littlelink-server
+sources:
+- https://github.com/techno-tim/littlelink-server
+- https://github.com/sethcottle/littlelink
+version: 1.0.0
