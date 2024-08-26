@@ -11,4 +11,4 @@ name: littlelink-server
 sources:
 - https://github.com/techno-tim/littlelink-server
 - https://github.com/sethcottle/littlelink
-version: 1.0.0
+version: 1.0.1
