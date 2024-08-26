@@ -577,6 +577,24 @@ entries:
   littlelink-server:
   - apiVersion: v2
     appVersion: 1.0.0
+    created: "2024-08-26T21:49:57.537193305Z"
+    description: Helm Chart for LittleLink - personal link aggregator.
+    digest: 07e9951ae3b92f1c0d7b47c55e418ed9eb5ae79ebfdf251fd07b358beb0b13d2
+    keywords:
+    - littlelink-server
+    maintainers:
+    - email: luck3rinc@yandex.ru
+      name: hiimluck3r
+      url: https://github.com/hiimluck3r
+    name: littlelink-server
+    sources:
+    - https://github.com/techno-tim/littlelink-server
+    - https://github.com/sethcottle/littlelink
+    urls:
+    - https://github.com/hiimluck3r/helm-charts/releases/download/littlelink-server-1.0.1/littlelink-server-1.0.1.tgz
+    version: 1.0.1
+  - apiVersion: v2
+    appVersion: 1.0.0
     created: "2024-08-26T21:17:59.805854648Z"
     description: Helm Chart for LittleLink - personal link aggregator.
     digest: e0f7d4957aaae82eec8f7f320f998e02e981c2093e01da54ab54009bc6146f1b
@@ -593,4 +611,4 @@ entries:
     urls:
     - https://github.com/hiimluck3r/helm-charts/releases/download/littlelink-server-1.0.0/littlelink-server-1.0.0.tgz
     version: 1.0.0
-generated: "2024-08-26T21:17:59.805942823Z"
+generated: "2024-08-26T21:49:57.537351383Z"
